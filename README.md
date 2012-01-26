@@ -13,6 +13,8 @@ Simply copy&paste the cloned sources to your MASON project. See how to set up a 
 mason-jung
 ----------
 
+![mason-jung screenshot](https://github.com/rlegendi/mason-examples/raw/master/mason-jung/src/main/resources/ai/aitia/contrib/mason/jung/icon.png)
+
 This is a demo model introducing the usage of [JUNG][jung] (Java Universal Network/Graph Framework) with MASON. There is an official [contributed example][jungExtension] but I found it a bit overcomplicated.
 
 MASON offers several ways to work with networks, like the built-in mechanism (e.g., NetworkPortrayal2D) or the SocialNets extension. Unfortunately, both requires a 2D world to operate with, so one have to implement the layouting strategy for instance. MASON also supports using external libraries like JUNG for operating with networks.

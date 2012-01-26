@@ -1,0 +1,7 @@
+#--- Ignore enumerated resources ----------------------------------------------
+
+# Do not add the target directory
+target/
+
+# Do not add the bin directory
+bin/

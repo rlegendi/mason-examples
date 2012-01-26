@@ -1,4 +1,4 @@
-package ai.aitia.crisis.jung;
+package ai.aitia.contrib.mason.jung;
 
 public class Edge {
 	private final int weight; // Unused, but may come handy later

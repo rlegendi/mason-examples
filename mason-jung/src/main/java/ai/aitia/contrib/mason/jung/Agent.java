@@ -1,4 +1,4 @@
-package ai.aitia.crisis.jung;
+package ai.aitia.contrib.mason.jung;
 
 import java.util.ArrayList;
 

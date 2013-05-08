@@ -10,6 +10,13 @@ Running the examples
 
 Simply copy&paste the cloned sources to your MASON project. See how to set up a MASON project on [NetBeans][netBeansMason] or [Eclipse][eclipseMason].
 
+mason-elfarol
+-------------
+
+El Farol is a bar in Santa Fe, New Mexico. The bar is popular --- especially on Thursday nights when they offer Irish music --- but sometimes becomes overcrowded and unpleasant. In fact, if the patrons of the bar think it will be overcrowded they stay home; otherwise they go enjoy themselves at El Farol. This model explores what happens to the overall attendance at the bar on these popular Thursday evenings, as the patrons use different strategies for determining how crowded they think the bar will be.
+
+The implementation was based on the NetLogo Model Library and some fragments I had on the hard drive. It was hacked together in about 1.5 hours so don't expect too much :-)
+
 mason-jung
 ----------
 

@@ -10,6 +10,11 @@
 			<artifactId>mason-all</artifactId>
 			<version>16.0.0-RELEASE</version>
 		</dependency>
+		<dependency>
+			<groupId>ai.aitia.crisis.game</groupId>
+			<artifactId>game-adaptor-api</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>

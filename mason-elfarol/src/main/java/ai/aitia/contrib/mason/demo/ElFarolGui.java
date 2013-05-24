@@ -43,7 +43,7 @@ public class ElFarolGui
 		controller.registerFrame( displayFrame );
 		
 		attendance = new TimeSeriesChartGenerator();
-		setMetadata( attendance, "Consumption", "Time", "consumption" );
+		setMetadata( attendance, "Attendance", "Time", "attendance number" );
 		displayFrame.add( attendance.getChartPanel() );
 		
 		displayFrame.pack();

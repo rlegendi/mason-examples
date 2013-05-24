@@ -1,7 +1,11 @@
 package ai.aitia.contrib.mason.demo;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import ai.aitia.crisis.game.adaptor.common.events.ActionEvaluationEvent;
 
 import sim.engine.SimState;
 import sim.engine.Steppable;
@@ -26,6 +30,8 @@ public class ElFarol
 	
 	public ElFarol(final long seed) {
 		super( seed );
+		
+		initAgents();
 	}
 	
 	public int getAgentsNumber() {
@@ -80,7 +86,12 @@ public class ElFarol
 		
 		history.updateHistory();
 		
+		boolean shouldHaveGone = getAttendance() <= overcrowdingThreshold;
+		
 		for (final Agent act : agents) {
+			if (act.isAttending() && shouldHaveGone || !act.isAttending() && !shouldHaveGone){
+				act.increaseScore();
+			}
 			act.updateStrategies();
 		}
 	}
@@ -89,9 +100,18 @@ public class ElFarol
 		return history;
 	}
 	
+	public List<Integer>getMemoryBoundedSubHistory(){
+		return history.getMemoryBoundedSubHistory();
+	}
+	
 	@Override
 	public void start() {
 		super.start();
+		
+		schedule.scheduleRepeating( this );
+	}
+
+	public void initAgents() {
 		agents.clear();
 		
 		history = new History( this );
@@ -100,7 +120,54 @@ public class ElFarol
 			final Agent agent = new Agent( this );
 			agents.add( agent );
 		}
-		
-		schedule.scheduleRepeating( this );
 	}
+
+	/**
+	 * @return the agents
+	 */
+	public List<Agent> getAgents() {
+		return agents;
+	}
+	
+	public Map<String, Integer> getModelParameters(){
+		Map<String, Integer> parameters = new HashMap<String, Integer>();
+		
+		parameters.put("agentsNumber", agentsNumber);
+		parameters.put("memorySize", memorySize);
+		parameters.put("strategiesNumber", strategiesNumber);
+		parameters.put("overcrowdingThreshold", overcrowdingThreshold);
+		
+		return parameters;
+	}
+	
+	public Map<String, Map<String, ? extends Number>> getScores(){
+		Map<String, Map<String, ? extends Number>> result = new HashMap<>();
+		int averageAgentScore = 0;
+		int averageAIScore = 0;
+		
+		for (Agent agent : getAgents()) {
+			String playerId = agent.getPlayerId();
+			averageAgentScore += agent.getScore();
+			if (playerId == null){
+				averageAIScore += agent.getScore();
+			} else {
+				result.put(playerId, agent.getAgentScore());
+			}
+		}
+		
+		Map<String, Double> score = new HashMap<>();
+		score.put("score", (double)averageAIScore / agentsNumber);
+		result.put("average AI score", score);
+		
+		score.put("score", (double)averageAgentScore / agentsNumber);
+		result.put("average score", score);
+		
+		
+		return result;
+	}
+	
+	public String playerActed(ActionEvaluationEvent event){
+		return event.getPlayerId();
+	}
+	
 }

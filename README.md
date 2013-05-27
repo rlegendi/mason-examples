@@ -24,6 +24,8 @@ The El Farol model extended to use with the Participatory Extenson Module, v2.0 
 
 For the details, see http://pet2.aitia.ai/, or [Pet2].
 
+![mason-elfarol-pet2 screenshot](https://github.com/rlegendi/mason-examples/raw/elfarol-pet2/mason-elfarol/src/main/resources/ai/aitia/contrib/mason/demo/elfarol-pet2.png)
+
 * [PET2] Richard Oliver Legendi, László Gulyás, Tamás Máhr,  Rajmund Bocsi, Vilmos Kozma, Gábor Ferschl, Peter Rieger and Jakob Grazzini: "A New Set of Tools Supporting Agent-Based Economic Modelling". (*To appear in* the proceedings of the 16th Portuguese Conference on Artificial Intelligence, EPIA 2013 conference, SSM – Social Simulation and Modelling Thematic Track) 
 
 ### mason-jung ###
